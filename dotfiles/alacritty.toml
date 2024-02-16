@@ -1,0 +1,31 @@
+import = ["/home/spinaks/.config/alacritty/themes/themes/nord.toml"]
+
+[font]
+size = 12.5
+
+[font.bold]
+family = "Mononoki Nerd Font"
+style = "Regular"
+
+[font.bold_italic]
+family = "Mononoki Nerd Font"
+style = "Italic"
+
+[font.italic]
+family = "Mononoki Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Mononoki Nerd Font"
+style = "Regular"
+
+[shell]
+program = "/usr/bin/tmux"
+
+[window]
+decorations = "none"
+opacity = 0.9
+
+[window.padding]
+x = 10
+y = 10
