@@ -1,0 +1,4 @@
+alias ls='exa -l'
+alias ll='exa -la'
+alias cat='batcat -p'
+alias sudop='sudo env PATH=$PATH'
