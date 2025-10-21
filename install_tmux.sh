@@ -9,12 +9,12 @@ fi
 
 # Install TPM (Tmux Plugin Manager) if not present
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 else
   echo "TPM is already installed."
 fi
 
 # Symlink tmux config from dotfiles
-ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/dev/dotfiles/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
 
-echo "tmux and TPM are set up. Config symlinked to ~/.tmux.conf."
+echo "tmux and TPM are set up. Config symlinked to ~/.config/tmux/tmux.conf"
