@@ -12,7 +12,7 @@ cd alacritty || exit
 
 # Installs dependencies
 sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-
+exec $SHELL
 # Compiles the release for alacritty
 cargo build --release
 
@@ -39,3 +39,5 @@ sudo update-alternatives --set x-terminal-emulator /usr/local/bin/alacritty
 # These lines will download the default alacritty themes
 mkdir -p ~/.config/alacritty/themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+
+alacritty migrate

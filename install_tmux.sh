@@ -16,5 +16,6 @@ fi
 
 # Symlink tmux config from dotfiles
 ln -sf ~/dev/dotfiles/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+ln -sf ~/dev/dotfiles/dotfiles/tmux.conf.default ~/.config/tmux/tmux.conf.default
 
 echo "tmux and TPM are set up. Config symlinked to ~/.config/tmux/tmux.conf"
