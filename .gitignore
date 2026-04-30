@@ -1,0 +1,9 @@
+# OS/editor/temp files
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local OpenCode/AI tooling/cache/dependencies
+.opencode/

@@ -1,0 +1,1 @@
+/home/pabloben/dev/ai-config/templates/AGENTS.md
