@@ -2,3 +2,10 @@ alias ls='exa -l'
 alias ll='exa -la'
 alias cat='batcat -p'
 alias sudop='sudo env PATH=$PATH'
+alias opencode-secure='docker run -it --rm \
+    --init \
+    --env TERM=xterm-256color \
+    -v "/home/$(whoami)/.config/opencode:/home/agent/.config/opencode" \
+    -v "$(pwd):/home/agent/workspace" \
+    -w /home/agent/workspace \
+    opencode-agent'
