@@ -1,18 +1,43 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-DOTFILES_DIR="$HOME/dev/dotfiles/dotfiles"
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+DOTFILES_DIR="$SCRIPT_DIR/dotfiles"
+
+backup_path () {
+    local dest="$1"
+    local backup="${dest}.bak.$(date +%Y%m%d%H%M%S)"
+
+    while [ -e "$backup" ] || [ -L "$backup" ]; do
+        backup="${dest}.bak.$(date +%Y%m%d%H%M%S).$RANDOM"
+    done
+
+    printf '%s\n' "$backup"
+}
 
 link_file () {
     local src="$1"
     local dest="$2"
+    local backup
+
+    if [ ! -e "$src" ]; then
+        echo "✘ Source does not exist: $src" >&2
+        return 1
+    fi
 
     if [ -L "$dest" ]; then
-        echo "✔ Symlink already exists: $dest"
+        if [ "$(readlink "$dest")" = "$src" ]; then
+            echo "✔ Correct symlink already exists: $dest"
+        else
+            rm "$dest"
+            ln -s "$src" "$dest"
+            echo "✔ Symlink updated: $dest"
+        fi
     elif [ -e "$dest" ]; then
-        echo "⚠ Backing up existing file: $dest -> ${dest}.bak"
-        mv "$dest" "${dest}.bak"
+        backup="$(backup_path "$dest")"
+        echo "⚠ Backing up existing file: $dest -> $backup"
+        mv "$dest" "$backup"
         ln -s "$src" "$dest"
         echo "✔ Symlink created: $dest"
     else

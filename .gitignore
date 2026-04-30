@@ -5,5 +5,8 @@
 .DS_Store
 Thumbs.db
 
-# Local OpenCode/AI tooling/cache/dependencies
+# Local OpenCode/AI workflow, memory, tooling/cache/dependencies
 .opencode/
+AGENTS.md
+opencode.jsonc
+docs/ai/

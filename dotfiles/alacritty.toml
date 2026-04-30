@@ -1,4 +1,4 @@
-import = ["/home/spinaks/.config/alacritty/themes/themes/nord.toml"]
+import = ["~/.config/alacritty/themes/themes/nord.toml"]
 
 [font]
 size = 12.5
